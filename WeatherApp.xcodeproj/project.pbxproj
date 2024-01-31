@@ -11,6 +11,7 @@
 		AE7790352B683136003E391D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7790342B683136003E391D /* ContentView.swift */; };
 		AE7790372B683137003E391D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE7790362B683137003E391D /* Assets.xcassets */; };
 		AE77903A2B683137003E391D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE7790392B683137003E391D /* Preview Assets.xcassets */; };
+		AE884BF72B699EE0001ABA76 /* WeatherButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE884BF62B699EE0001ABA76 /* WeatherButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		AE7790342B683136003E391D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AE7790362B683137003E391D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE7790392B683137003E391D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AE884BF62B699EE0001ABA76 /* WeatherButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				AE7790342B683136003E391D /* ContentView.swift */,
+				AE884BF62B699EE0001ABA76 /* WeatherButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			files = (
 				AE7790352B683136003E391D /* ContentView.swift in Sources */,
 				AE7790332B683136003E391D /* WeatherAppApp.swift in Sources */,
+				AE884BF72B699EE0001ABA76 /* WeatherButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

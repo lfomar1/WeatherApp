@@ -9,28 +9,17 @@ import SwiftUI
 
 
 struct ContentView: View {
+    @State private var isNightMode = false
     var body: some View {
         ZStack {
-            LinearGradient(colors: [.blue,Color(.lightBlue)],
-                           startPoint: .topLeading,
-                           endPoint: .bottomTrailing)
-                .edgesIgnoringSafeArea(.all)
+            BackgroundView(isNightMode: isNightMode)
+            
             VStack{
-                Text("Cupertino, CA")
-                    .font(.system(size: 32, weight: .medium, design: .default))
-                    .foregroundStyle(.white)
-                    .padding()
-                VStack(spacing: 10){
-                    Image(systemName: "cloud.sun.fill")
-                        .renderingMode(.original)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 180, height: 180)
-                    Text("76°")
-                        .font(.system(size: 70, weight: .medium))
-                        .foregroundStyle(.white)
-                }
-                .padding(.bottom, 40)
+               
+                CityName(cityName: "Cupertino, CA")
+                
+                CurrentCityWeather(imageString: isNightMode ? "moon.stars.fill" : "cloud.sun.fill",
+                                   temp: "76°")
                 
                 HStack(spacing: 20){
                 WeatherDayView( dayOfWeek: "TUE",
@@ -55,13 +44,10 @@ struct ContentView: View {
                 Spacer()
                 
                 Button {
-                    print("Hello World")
+                    isNightMode.toggle()
                 } label: {
-                     Text("Change Day Time")
-                        .frame(width: 280, height: 50)
-                        .background(.white)
-                        .font(.system(size: 20, weight: .bold, design: .default))
-                        .cornerRadius(10)
+                    WeatherButtonStyle(buttonText: isNightMode ? "Change Day Time" : "Change Night Time",                                             backgroundColor: isNightMode ? .black : .white,
+                                       textColor: isNightMode ? .white : .blue)
                 }
                 Spacer()
             }
@@ -93,3 +79,41 @@ struct WeatherDayView: View {
         .foregroundStyle(.white)
     }
 }
+
+struct BackgroundView: View {
+    var isNightMode: Bool
+    var body: some View {
+        LinearGradient(colors: [isNightMode ? .black : .blue, isNightMode ? .white : Color("lightBlue") ], startPoint: .topLeading, endPoint: .bottomTrailing)
+            .ignoresSafeArea()
+    }
+}
+
+struct CityName: View {
+    var cityName: String
+    var body: some View{
+        Text(cityName)
+            .font(.system(size: 32, weight: .medium, design: .default))
+            .foregroundStyle(.white)
+            .padding()
+    }
+}
+
+struct CurrentCityWeather: View {
+    var imageString: String
+    var temp: String
+    
+    var body: some View {
+        VStack(spacing: 10){
+            Image(systemName: imageString)
+                .renderingMode(.original)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 180, height: 180)
+            Text(temp)
+                .font(.system(size: 70, weight: .medium))
+                .foregroundStyle(.white)
+        }
+        .padding(.bottom, 40)
+    }
+}
+
